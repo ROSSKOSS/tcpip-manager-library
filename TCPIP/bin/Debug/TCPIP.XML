@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TCPIP</name>
+    </assembly>
+    <members>
+        <member name="T:TCPIP.CommOperator">
+            <summary>
+            The Server-part class. Manages the incoming requests and distributes them to the listeners.
+            </summary>
+        </member>
+        <member name="P:TCPIP.CommOperator.externalIP">
+            <summary>
+            After the GetIPAsync method will be executed, this property will contain obtained ip.
+            </summary>
+        </member>
+        <member name="M:TCPIP.CommOperator.GetIPAsync">
+            <summary>
+            The static method that returns this computer's external ip asynchronously.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TCPIP.TCPClient">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
