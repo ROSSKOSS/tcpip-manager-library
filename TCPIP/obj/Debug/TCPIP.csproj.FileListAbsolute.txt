@@ -1,7 +1,7 @@
-C:\Projects\GitHubClones\tcpip-manager-library\TCPIP\obj\Debug\TCPIP.csprojResolveAssemblyReference.cache
 C:\Projects\GitHubClones\tcpip-manager-library\TCPIP\bin\Debug\TCPIP.dll
 C:\Projects\GitHubClones\tcpip-manager-library\TCPIP\bin\Debug\TCPIP.pdb
 C:\Projects\GitHubClones\tcpip-manager-library\TCPIP\bin\Debug\MonoNat.dll
 C:\Projects\GitHubClones\tcpip-manager-library\TCPIP\obj\Debug\TCPIP.dll
 C:\Projects\GitHubClones\tcpip-manager-library\TCPIP\obj\Debug\TCPIP.pdb
 C:\Projects\GitHubClones\tcpip-manager-library\TCPIP\bin\Debug\TCPIP.XML
+C:\Projects\GitHubClones\tcpip-manager-library\TCPIP\obj\Debug\TCPIP.csprojResolveAssemblyReference.cache

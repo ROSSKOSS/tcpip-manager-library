@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.ComponentModel;
+using System.Net.Sockets;
 
 namespace TCPIP
 {
@@ -19,24 +20,45 @@ namespace TCPIP
         static string externalIP { get; set; }
 
         /// <summary>
+        /// After the GetLocalIP method will be executed, this property will contain obtained ip.
+        /// </summary>
+        static string localIP { get; set; }
+
+        /// <summary>
         /// The static method that returns this computer's external ip asynchronously.
         /// </summary>
         /// <returns></returns>
         public static async Task<string> GetIPAsync()
         {
-            try
-            {
-                var webClient = new WebClient();
-                var result = await webClient.DownloadStringTaskAsync("http://ipinfo.io/ip");
-                externalIP = result;
-                return result;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+            var webClient = new WebClient();
+            var result = await webClient.DownloadStringTaskAsync("http://ipinfo.io/ip");
+            externalIP = result;
+            return result;
         }
 
+        /// <summary>
+        /// The static method that returns this computer's local ip.
+        /// </summary>
+        public static string GetLocalIP()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    return ip.ToString();
+                }
+            }
+            throw new Exception("Local IP Address Not Found!");
+        }
+
+        /// <summary>
+        /// NotImplemented
+        /// </summary>
+        public static void ConnectClientToServer(string IP, string Port)
+        {
+
+        }
     }
 }
 

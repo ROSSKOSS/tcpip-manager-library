@@ -14,16 +14,80 @@
             After the GetIPAsync method will be executed, this property will contain obtained ip.
             </summary>
         </member>
+        <member name="P:TCPIP.CommOperator.localIP">
+            <summary>
+            After the GetLocalIP method will be executed, this property will contain obtained ip.
+            </summary>
+        </member>
         <member name="M:TCPIP.CommOperator.GetIPAsync">
             <summary>
             The static method that returns this computer's external ip asynchronously.
             </summary>
             <returns></returns>
         </member>
+        <member name="M:TCPIP.CommOperator.GetLocalIP">
+            <summary>
+            The static method that returns this computer's local ip.
+            </summary>
+        </member>
+        <member name="M:TCPIP.CommOperator.ConnectClientToServer(System.String,System.String)">
+            <summary>
+            NotImplemented
+            </summary>
+        </member>
+        <member name="T:TCPIP.DataContainer">
+            <summary>
+            The Container of data and a datatype which is used for data-bytearray conversion.  
+            </summary>
+        </member>
+        <member name="P:TCPIP.DataContainer.Data">
+            <summary>
+            Data in arbitary form.
+            </summary>
+        </member>
+        <member name="P:TCPIP.DataContainer.DataType">
+            <summary>
+            Type of contained data.
+            </summary>
+        </member>
         <member name="T:TCPIP.TCPClient">
             <summary>
-            
+            The Advanced TcpClient with built-in methods to connect to listeners and transfer data.
             </summary>
+        </member>
+        <member name="P:TCPIP.TCPClient.TargetIP">
+            <summary>
+            The IP of the targeted listener.
+            </summary>
+        </member>
+        <member name="P:TCPIP.TCPClient.TargetPort">
+            <summary>
+            The Port of targeted listener.
+            </summary>
+        </member>
+        <member name="P:TCPIP.TCPClient.ConnectionChannel">
+            <summary>
+            The stream of data between client and listener.
+            </summary>
+        </member>
+        <member name="M:TCPIP.TCPClient.#ctor(System.String,System.Int32)">
+            <summary>
+            The Advanced TcpClient with built-in methods to connect to listeners and transfer data.
+            </summary>
+            <param name="targetIP">The IP of the targeted listener.</param>
+            <param name="targetPort"> The Port of targeted listener.</param>
+        </member>
+        <member name="M:TCPIP.TCPClient.ConnectToSever(System.String)">
+            <summary>
+            This method requests server to approve the connection between self and the client.
+            </summary>
+            <param name="clientsName">The name of the client. Eventually is going to be more advanced.</param>
+        </member>
+        <member name="M:TCPIP.TCPClient.SendData(TCPIP.DataContainer)">
+            <summary>
+            Sends the data given as a parameter.
+            </summary>
+            <param name="data">Arbitary data.</param>
         </member>
     </members>
 </doc>
