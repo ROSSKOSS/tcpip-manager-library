@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.ComponentModel;
 using System.Net.Sockets;
+using System.Net.NetworkInformation;
 
 namespace TCPIP
 {
@@ -53,11 +54,28 @@ namespace TCPIP
         }
 
         /// <summary>
-        /// NotImplemented
+        /// This method returns first free port on a current PC.
         /// </summary>
-        public static void ConnectClientToServer(string IP, string Port)
+        /// <param name="startPort">Left border of the search. Default: 1024.</param>
+        /// <param name="endPort">Right border of the search. Default: 65535.</param>
+        /// 
+        public static int GetOpenPort(int startPort = 1024, int endPort = 65535)
         {
+            var properties = IPGlobalProperties.GetIPGlobalProperties();
+            IPEndPoint[] tcpEndPoints = properties.GetActiveTcpListeners();
+            List<int> usedPorts = tcpEndPoints.Select(p => p.Port).ToList<int>();
+            int unusedPort = 0;
 
+            for (int port = startPort; port < endPort; port++)
+            {
+                if (!usedPorts.Contains(port))
+                {
+                    unusedPort = port;
+                    break;
+                }
+               
+            }
+            return unusedPort;
         }
     }
 }

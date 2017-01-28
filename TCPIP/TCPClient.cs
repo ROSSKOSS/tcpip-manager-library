@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-
+using Mono.Nat;
 namespace TCPIP
 {
     /// <summary>
@@ -15,8 +15,8 @@ namespace TCPIP
     class TCPClient
     {
         private TcpClient _client;
-        private StreamWriter channelCaster;
-
+        private StreamWriter _channelCaster;
+        private int _port;
         /// <summary>
         /// The IP of the targeted listener.
         /// </summary>
@@ -50,9 +50,9 @@ namespace TCPIP
         {
             _client = new TcpClient(TargetIP, TargetPort);
             ConnectionChannel = _client.GetStream();
-            channelCaster = new StreamWriter(ConnectionChannel);
-            channelCaster.WriteLine(clientsName);
-            channelCaster.Flush();
+            _channelCaster = new StreamWriter(ConnectionChannel);
+            _channelCaster.WriteLine(clientsName);
+            _channelCaster.Flush();
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace TCPIP
         /// <param name="data">Arbitary data.</param>
         public void SendData(DataContainer data)
         {
-            channelCaster.WriteLine(DataToByteArray(data));
+            _channelCaster.WriteLine(DataToByteArray(data));
         }
 
         private byte[] DataToByteArray(DataContainer data)
@@ -85,5 +85,6 @@ namespace TCPIP
                 return obj as DataContainer;
             }
         }
+
     }
 }
